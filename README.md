@@ -18,6 +18,7 @@ Also notice that due to the use of net rpc, you need to migrate first thing afte
 - Better integrate gnu parallel with in the script itself for more convenience.
 - Improve the way arguments are passed, add arguments for number of threads, ip ranges, host files. 
 - Add the ability to go through a list of captured credentials, to check them against the ip/range in scope. 
+- Add pass the hash option if password is not available
 
 ### Usage 
 Before running this script, simply make sure that you have two payload files (32 & 64 bit). Make sure to update the name of the files accordingly in the script. 
