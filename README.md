@@ -1,5 +1,6 @@
 # smbXplode
 
+What do do when Metasploit psexec module doesn't work for no good reason ? 
 This script is used to automate the process of harvesting credentials and getting meterpreter sessions throught the smb and rpc in a windows domain.
 For this to work you would need to have some kind of admin credentials to start with. or you could have some low previledge creds that you want to try them agains the whole range and try to escalate your priviledge later on. 
 
