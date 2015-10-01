@@ -9,7 +9,7 @@ You can always re-adapt msfcommands.rc to automate the Metasploit commands that 
 
 Also notice that due to the use of net rpc, you need to migrate first thing after a session otherwise the session would die. You can always fall back to use the Winexe command (which you can find commented in the script).
 
-### Features 
+## Features 
 - Detects remote host architecture before uploading payload
 - Abstracts the process of upload/execute payload on remote host
 - Combined with "gnu parallel", it can exploit whole ranges/host lists within one command line
@@ -20,11 +20,11 @@ Also notice that due to the use of net rpc, you need to migrate first thing afte
 - Add the ability to go through a list of captured credentials, to check them against the ip/range in scope. 
 - Add pass the hash option if password is not available
 
-### Usage 
+## Usage 
 Before running this script, simply make sure that you have two payload files (32 & 64 bit). Make sure to update the name of the files accordingly in the script. 
 
 
-#### Single Host
+### Single Host
 To run the script simply use the following syntax
 ```	
 ./smbXplode.sh domain username password hostIP
@@ -35,7 +35,7 @@ Example :
 ./smbXplode.sh domain tito Password2015 10.10.10.10
 ```
 
-#### Multiple Hosts
+### Multiple Hosts
 So far it's not really integrated into the script, as I like to keep it as simple as possible. I rely on GNU parallel to do that. 
 Notice that parallel passes the IP as the last parameter already. 
 
@@ -49,7 +49,7 @@ Running against host ips file
 cat hosts.txt | parallel -j 5 ./smbXplode.sh domain tito Password2015
 ```
 
-#### Metasploit Handler
+## Metasploit Handler
 Make sure to have your Metasploit handler listening for both payloads ( you can listen two different ports for 32, and 64 ).
 Also, make sure you select the correct payload for the handler, I will demonstrate the reverce_tcp (32 and 64) 
 
