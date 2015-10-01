@@ -41,11 +41,11 @@ Notice that parallel passes the IP as the last parameter already.
 
 Example 
 ```
-Running against a /24
+# Running against a /24
 for i in {1..254}; do echo 10.10.10.$i; done | parallel -j 5 ./smbXplode.sh domain tito Password2015
 ```
 ```
-Running against host ips file
+# Running against host ips file
 cat hosts.txt | parallel -j 5 ./smbXplode.sh domain tito Password2015
 ```
 
