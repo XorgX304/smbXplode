@@ -50,7 +50,7 @@ cat hosts.txt | parallel -j 5 ./smbXplode.sh domain tito Password2015
 ```
 
 ## Metasploit Handler
-Make sure to have your Metasploit handler listening for both payloads ( you can listen two different ports for 32, and 64 ).
+Make sure to have your Metasploit handler listening for both payloads (you can listen two different ports for 32, and 64).
 Also, make sure you select the correct payload for the handler, I will demonstrate the reverce_tcp (32 and 64) 
 
 Example :
