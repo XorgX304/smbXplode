@@ -49,7 +49,7 @@ for i in {1..254}; do echo 10.10.10.$i; done | parallel -j 5 ./smbXplode.sh doma
 cat hosts.txt | parallel -j 5 ./smbXplode.sh domain tito Password2015
 ```
 
-## Metasploit Handler
+### Metasploit Handler
 Make sure to have your Metasploit handler listening for both payloads (you can listen two different ports for 32, and 64).
 Also, make sure you select the correct payload for the handler, I will demonstrate the reverce_tcp (32 and 64) 
 
@@ -69,3 +69,8 @@ run -j -z
 ```
 
 Now make sure that your connect back payloads are configured to match those ports and payload type. 
+
+## Dependencies
+- net rpc ( used to detect architecture, and run the payload ) 
+- smbclient ( used to upload payload ) 
+- winexe ( in case used as a replacement for net rpc to run the payload ) 
