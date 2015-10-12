@@ -2,8 +2,8 @@
 
 What to do when Metasploit psexec module doesn't work for no good reason? 
 
-This script is used to automate the process of harvesting credentials and getting Meterpreter sessions through smb and rpc in a windows domain.
-For this to work you would need to have some kind of admin credentials to start with. or you could have some low privileged credentials; that you want to try them against the whole range and try to escalate your privilege later on. 
+This script is used to automate the process of harvesting credentials and getting Meterpreter sessions through smb and rpc against windows domain.
+For this to work you would need to have some admin credentials to start with. or you could have some low privileged credentials; that you want to try them against the whole range and try to escalate your privilege later on. 
 
 You can always re-adapt msfcommands.rc to automate the Metasploit commands that you want to run once you have a session. 
 
@@ -74,3 +74,6 @@ Now make sure that your connect back payloads are configured to match those port
 - net rpc ( used to detect architecture, and run the payload ) 
 - smbclient ( used to upload payload ) 
 - winexe ( in case used as a replacement for net rpc to run the payload ) 
+
+## Thanks
+@Mr.Un1k0d3r from ringzer0team.com 
